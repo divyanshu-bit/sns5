@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SNS Industries - Leading Rivet Manufacturer in India</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome CDN -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-text"></div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="photos/png.avif" alt="SNS Industries Logo" class="client-logo" />
+                </a>
+            </div>
+            <div class="nav-items-wrapper">
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <div class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="rivets.html"><b>Rivets</a>
+                            <a href="blind-rivets.html">Blind Rivets</a>
+                            <a href="pop-rivets.html">POP Rivets</a>
+                            <a href="aluminium-blind-rivets.html">Aluminium Blind Rivets</a>
+                            <a href="aluminium-pop-rivets.html">Aluminium POP Rivets</a>
+                            <a href="aluminium-solid-rivets.html">Aluminium Solid Rivets</a>
+                            <a href="aluminium-flat-head-rivets.html">Aluminium Flat Head Rivets</a>
+                            <a href="ss-pop-rivets.html">SS POP Rivets</a>
+                            <a href="colored-pop-rivets.html">Colored POP Rivets</a>
+                            <a href="holo-rivets.html">HOLO Rivets</b></a>
+                        </div>
+                    </div>
+                    <a href="index.html#applications" class="nav-link">Applications</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#gallery" class="nav-link">Gallery</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="nav-cta">
+                <button class="btn btn-nav" onclick="smoothScroll('#contact')">Get Quote</button>
+            </div>
+        </div>
+    </nav>
+<!-- Hero Section -->
+    
+<div class="fusn-bt-hero">
+  <div class="slides">
+    <div class="slide"><img src="photos/21.avif" alt="Slide 1"></div>
+    <div class="slide"><img src="photos/22.avif" alt="Slide 2"></div>
+    <div class="slide"><img src="photos/23.avif" alt="Slide 3"></div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+  <div class="dots">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<style>
+.fusn-bt-hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  
+}
+.fusn-bt-hero .slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+.fusn-bt-hero .slide {
+  min-width: 100%;
+}
+
+
+.fusn-bt-hero img {
+  width: 100%;
+  display: block;
+  margin-top: 70px;
+  height: auto; /* Default for mobile */
+}
+
+/* For desktop and larger screens */
+/* @media (min-width: 768px) {
+  .fusn-bt-hero img {
+    height: 670px;
+    object-fit: cover; 
+  }
+} */
+
+
+
+.fusn-bt-hero .prev,
+.fusn-bt-hero .next {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+  border: none;
+  /* padding: 10px; */
+  cursor: pointer;
+  border-radius: 50%;
+}
+.fusn-bt-hero .prev { left: 10px; }
+.fusn-bt-hero .next { right: 10px; }
+.fusn-bt-hero .dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+.fusn-bt-hero .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.fusn-bt-hero .dot.active {
+  background: #fff;
+}
+</style>
+
+
+
+<script>
+(function() {
+  const slider = document.querySelector('.fusn-bt-hero');
+  const slides = slider.querySelectorAll('.slide');
+  const dots = slider.querySelectorAll('.dot');
+  const slidesContainer = slider.querySelector('.slides');
+  let currentIndex = 0;
+  let autoSlideInterval;
+
+  function showSlide(index) {
+    if (index >= slides.length) { index = 0; }
+    if (index < 0) { index = slides.length - 1; }
+    slidesContainer.style.transform = 'translateX(' + (-index * 100) + '%)';
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    currentIndex = index;
+  }
+
+  function startAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      showSlide(currentIndex + 1);
+    }, 9500);
+  }
+
+  function userSlide(nextIndex) {
+    showSlide(nextIndex);
+    startAutoSlide(); // Reset timer
+  }
+
+  slider.querySelector('.next').addEventListener('click', () => {
+    userSlide(currentIndex + 1);
+  });
+
+  slider.querySelector('.prev').addEventListener('click', () => {
+    userSlide(currentIndex - 1);
+  });
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => userSlide(idx));
+  });
+
+  showSlide(currentIndex);
+  startAutoSlide(); // Start the auto-slide on load
+})();
+</script>
+    <br>
+    <br>
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Our Products</div>
+                <h2 class="section-title" style="color:black">Comprehensive Rivet Solutions</h2>
+                <p class="section-subtitle" style="color:black">
+                    Engineered for excellence, manufactured for reliability. Discover our complete range 
+                    of high-performance rivets designed for every industrial application.
+                </p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-product="blind">
+                    <div class="product-image">
+                        <img src="photos/pop-rivet-1-1000x1000.webp" alt="Blind Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Blind Rivets</h3>
+                        <p>High-performance rivets for applications where only one side of the joint is accessible. Perfect for automotive, HVAC, and electrical enclosures with superior vibration resistance.</p>
+                        <div class="product-features">
+                            <span class="feature">Easy Installation</span>
+                            <span class="feature">Vibration Resistant</span>
+                            <span class="feature">Strong Joints</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Material:</span>
+                                <span class="spec-value">Aluminium, Steel, SS</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Diameter:</span>
+                                <span class="spec-value">2.4mm - 6.4mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-product="pop">
+                    <div class="product-image">
+                        <img src="photos/pop-rivet-2-500x500.webp" alt="POP Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>POP Rivets</h3>
+                        <p>Also known as pull rivets, these offer excellent gripping strength and easy installation. Ideal for sheet metal applications and light assembly work across multiple industries.</p>
+                        <div class="product-features">
+                            <span class="feature">Strong Grip</span>
+                            <span class="feature">Quick Install</span>
+                            <span class="feature">Quick Install</span>
+                            <span class="feature">Versatile</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Head Style:</span>
+                                <span class="spec-value">Dome, Flat, Countersunk</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Length:</span>
+                                <span class="spec-value">6mm - 25mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-product="aluminium-blind">
+                    <div class="product-image">
+                        <img src="photos/aluminium-blind-rivet-500x500.webp" alt="Aluminium Blind Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Aluminium Blind Rivets</h3>
+                        <p>Corrosion-resistant with excellent strength-to-weight ratio. Widely used in construction, HVAC installations, and signage applications requiring lightweight solutions.</p>
+                        <div class="product-features">
+                            <span class="feature">Lightweight</span>
+                            <span class="feature">Corrosion Resistant</span>
+                            <span class="feature">Durable</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Finish:</span>
+                                <span class="spec-value">Natural, Anodized</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Grip Range:</span>
+                                <span class="spec-value">0.5mm - 12mm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-product="aluminium-pop">
+                    <div class="product-image">
+<img src="photos/aluminium-pop-rivets-500x500.jpg" alt="Aluminium POP Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Aluminium POP Rivets</h3>
+                        <p>Combining lightweight design with non-corrosive properties. Used in applications where both functionality and appearance matter, offering superior aesthetics.</p>
+                        <div class="product-features">
+                            <span class="feature">Aesthetic</span>
+                            <span class="feature">Non-Corrosive</span>
+                            <span class="feature">Functional</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Colors:</span>
+                                <span class="spec-value">Natural, Black, White</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Applications:</span>
+                                <span class="spec-value">Architectural, Marine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-product="solid">
+                    <div class="product-image">
+                        <img src="photos/black-aluminium-solid-rivets-500x500.webp" alt="Aluminium Solid Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Aluminium Solid Rivets</h3>
+                        <p>The preferred choice where maximum strength is crucial. Used in high-load and structural applications for permanent fastening with uncompromising reliability.</p>
+                        <div class="product-features">
+                            <span class="feature">Maximum Strength</span>
+                            <span class="feature">Structural</span>
+                            <span class="feature">Permanent</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Strength:</span>
+                                <span class="spec-value">Up to 350 MPa</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Standards:</span>
+                                <span class="spec-value">DIN 660, ISO 15977</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-product="custom">
+                    <div class="product-image">
+                        <img src="photos/aluminium-pop-rivets-1000x1000.webp" alt="Custom Rivets" />
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Custom Rivets</h3>
+                        <p>Tailored solutions for specific requirements. Custom head types, coatings, dimensions, and materials to meet your exact specifications and unique applications.</p>
+                        <div class="product-features">
+                            <span class="feature">Customizable</span>
+                            <span class="feature">Precise</span>
+                            <span class="feature">Specialized</span>
+                        </div>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">MOQ:</span>
+                                <span class="spec-value">1000 pieces</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Lead Time:</span>
+                                <span class="spec-value">2-4 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Process -->
+    <section id="manufacturing" class="manufacturing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Manufacturing Excellence</div>
+                <h2 class="section-title1">State-of-the-Art Production</h2>
+                <p class="section-subtitle1">
+                    Our advanced manufacturing processes ensure every rivet meets the highest standards 
+                    of quality, precision, and performance.
+                </p>
+            </div>
+            <div class="manufacturing-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Material Selection</h3>
+                        <p>Premium grade Aluminium, stainless steel, and specialized alloys sourced from certified suppliers.</p>
+                        <div class="timeline-visual">
+                            <div class="material-samples">
+                                <div class="sample aluminium"></div>
+                                <div class="sample steel"></div>
+                                <div class="sample alloy"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Precision Forming</h3>
+                        <p>Advanced cold forming processes create perfect rivet geometry with tight tolerances.</p>
+                        <div class="timeline-visual">
+                            <div class="forming-machine">
+                                <div class="machine-part part-1"></div>
+                                <div class="machine-part part-2"></div>
+                                <div class="forming-action"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Heat Treatment</h3>
+                        <p>Controlled heat treatment processes optimize strength and durability characteristics.</p>
+                        <div class="timeline-visual">
+                            <div class="heat-treatment">
+                                <div class="furnace"></div>
+                                <div class="heat-waves"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Surface Finishing</h3>
+                        <p>Specialized coatings and finishes provide corrosion resistance and aesthetic appeal.</p>
+                        <div class="timeline-visual">
+                            <div class="coating-process">
+                                <div class="spray-gun"></div>
+                                <div class="coating-particles"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3>Quality Control</h3>
+                        <p>Rigorous testing and inspection ensure every rivet meets our exacting standards.</p>
+                        <div class="timeline-visual">
+                            <div class="quality-testing">
+                                <div class="microscope"></div>
+                                <div class="test-results"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="applications">
+        <video autoplay muted loop playsinline class="applications-video">
+            <source src="photos/untitled-video-made-with-clipchamp.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div class="applications-content">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Industry Applications</div>
+                    <h2 class="section-title">Powering Industries Worldwide</h2>
+                    <p class="section-subtitle">
+                        Our rivets serve critical applications across diverse industries, 
+                        providing reliable fastening solutions for every challenge.
+                    </p>
+                </div>
+                <div class="applications-grid">
+                <div class="application-card automotive">
+                    <div class="app-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Automotive</h3>
+                    <p>Body panels, chassis components, interior assemblies, and structural reinforcements.</p>
+                    <div class="app-stats">
+                        <span>85% of car manufacturers</span>
+                    </div>
+                </div>
+                <div class="application-card aerospace">
+                    <div class="app-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Aerospace</h3>
+                    <p>Aircraft fuselage, wing assemblies, interior panels, and critical structural components.</p>
+                    <div class="app-stats">
+                        <span>Certified for aviation</span>
+                    </div>
+                </div>
+                <div class="application-card construction">
+                    <div class="app-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Construction</h3>
+                    <p>Curtain walls, roofing systems, HVAC installations, and architectural elements.</p>
+                    <div class="app-stats">
+                        <span>1000+ projects completed</span>
+                    </div>
+                </div>
+                <div class="application-card electronics">
+                    <div class="app-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                    <p>Enclosures, heat sinks, mounting brackets, and electromagnetic shielding.</p>
+                    <div class="app-stats">
+                        <span>EMI/RFI compliant</span>
+                    </div>
+                </div>
+                <div class="application-card marine">
+                    <div class="app-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Marine</h3>
+                    <p>Hull assemblies, deck fittings, superstructure, and corrosion-resistant applications.</p>
+                    <div class="app-stats">
+                        <span>Salt spray tested</span>
+                    </div>
+                </div>
+                <div class="application-card industrial">
+                    <div class="app-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial</h3>
+                    <p>Machinery assemblies, conveyor systems, safety equipment, and maintenance applications.</p>
+                    <div class="app-stats">
+                        <span>Heavy-duty rated</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section id="quality" class="quality">
+        <div class="container">
+            <div class="quality-content">
+                <div class="quality-text">
+                    <div class="section-badge light">Quality Assurance</div>
+                    <h2>Commitment to Excellence</h2>
+                    <p>At SNS Industries, quality is not just a goal—it's our promise. We implement rigorous quality control procedures at every stage of manufacturing, ensuring each rivet meets the highest standards of precision, strength, and reliability.</p>
+                    <div class="quality-points">
+                        <div class="quality-point">
+                            <div class="point-icon">
+                                <div class="check-mark"></div>
+                            </div>
+                            <div class="point-text">
+                                <h4>Precision Manufacturing</h4>
+                                <p>Every rivet engineered with microscopic accuracy using advanced CNC machinery and automated quality control systems.</p>
+                            </div>
+                        </div>
+                        <div class="quality-point">
+                            <div class="point-icon">
+                                <div class="check-mark"></div>
+                            </div>
+                            <div class="point-text">
+                                <h4>Premium Materials</h4>
+                                <p>Exclusively sourcing highest grade stainless steel, aluminium, and specialized alloys from certified global suppliers.</p>
+                            </div>
+                        </div>
+                        <div class="quality-point">
+                            <div class="point-icon">
+                                <div class="check-mark"></div>
+                            </div>
+                            <div class="point-text">
+                                <h4>Rigorous Testing</h4>
+                                <p>Comprehensive testing protocols including tensile strength, shear resistance, and corrosion testing for every batch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certifications">
+                        <div class="cert-item">
+                            <div class="cert-logo iso"></div>
+                            <span>ISO 9001:2015</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-logo din"></div>
+                            <span>DIN Standards</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-logo astm"></div>
+                            <span>ASTM Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quality-visual">
+                    <div class="quality-3d-scene">
+                        <div class="rotating-gear gear-1">
+                            <div class="gear-teeth"></div>
+                        </div>
+                        <div class="rotating-gear gear-2">
+                            <div class="gear-teeth"></div>
+                        </div>
+                        <div class="rotating-gear gear-3">
+                            <div class="gear-teeth"></div>
+                        </div>
+                        <div class="quality-badge">
+                            <div class="badge-inner">
+                                <span class="badge-text-1">ISO</span>
+                                <span class="badge-text-2">9001</span>
+                                <div class="badge-glow"></div>
+                            </div>
+                        </div>
+                        <div class="quality-particles"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="section-badge">About SNS Industries</div>
+                    <h2>Leading Innovation in Fastening Solutions</h2>
+                    <p>As one of India's premier manufacturers of high-quality rivets, SNS Industries has been at the forefront of fastening technology for over two decades. We specialize in blind rivets, POP rivets, aluminium rivets, SS POP rivets, and custom fastening solutions.</p>
+                    
+                     <div class="about-visual">
+                    <div class="factory-3d">
+                        <div class="factory-building">
+                            <div class="building-windows"></div>
+                            <div class="building-roof"></div>
+                        </div>
+                        <div class="conveyor-belt">
+                            <div class="belt-surface"></div>
+                            <div class="rivet-moving rivet-m1"></div>
+                            <div class="rivet-moving rivet-m2"></div>
+                            <div class="rivet-moving rivet-m3"></div>
+                            <div class="rivet-moving rivet-m4"></div>
+                        </div>
+                        <div class="machinery">
+                            <div class="machine-part part-1">
+                                <div class="machine-detail"></div>
+                            </div>
+                            <div class="machine-part part-2">
+                                <div class="machine-detail"></div>
+                            </div>
+                            <div class="production-sparks"></div>
+                        </div>
+                        <div class="factory-smoke">
+                            <div class="smoke-particle p1"></div>
+                            <div class="smoke-particle p2"></div>
+                            <div class="smoke-particle p3"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <div class="experience-icon"></div>
+                            </div>
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <div class="clients-icon"></div>
+                            </div>
+                            <div class="stat-number" data-count="500">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <div class="production-icon"></div>
+                            </div>
+                            <div class="stat-number" data-count="10000000">0</div>
+                            <div class="stat-label">Rivets Produced</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <div class="countries-icon"></div>
+                            </div>
+                            <div class="stat-number" data-count="25">0</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                    </div>
+
+                    <div class="vision-mission">
+                        <div class="vm-item">
+                            <div class="vm-icon-wrapper">
+                                <!-- Icons removed as per user request -->
+                            </div>
+                            <h3>Our Vision</h3>
+                            <p>To become a globally recognized leader in fastening solutions, continuously delivering innovative, reliable, and sustainable rivet technologies that enable industries to build with confidence.</p>
+                        </div>
+                        <div class="vm-item">
+                            <div class="vm-icon-wrapper">
+                                <!-- Icons removed as per user request -->
+                            </div>
+                            <h3>Our Mission</h3>
+                            <p>To manufacture and supply the highest quality rivets that meet our clients' unique requirements while providing customized solutions, ensuring timely delivery, and maintaining competitive pricing.</p>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Core Values</div>
+                <h2 class="section-title" style="color: black;">What Drives Us Forward</h2>
+                <p class="section-subtitle" style="color:black">
+                    Our fundamental principles guide every decision and action, 
+                    ensuring we deliver excellence in everything we do.
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon quality-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality First</h3>
+                    <p>We never compromise on quality. Every rivet undergoes rigorous testing and inspection to ensure it meets our exacting standards and exceeds customer expectations.</p>
+                    <div class="value-highlight">99.9% Quality Rate</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon integrity-icon">
+                        <div class="icon-inner">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We maintain transparency, fairness, and honesty in all our business dealings, building trust through consistent actions and reliable partnerships.</p>
+                    <div class="value-highlight">Trusted Partner</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon innovation-icon">
+                        <div class="icon-inner">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Continuously improving our processes and products to stay ahead of market trends, investing in R&D and cutting-edge manufacturing technologies.</p>
+                    <div class="value-highlight">Future Ready</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon customer-icon">
+                        <div class="icon-inner">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                    </div>
+                    <h3>Customer Focus</h3>
+                    <p>Your satisfaction is our priority. We fulfill our commitments on time and according to specifications, providing exceptional service at every touchpoint.</p>
+                    <div class="value-highlight">Customer Centric</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon sustainability-icon">
+                        <div class="icon-inner">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>Committed to environmental responsibility, sustainable manufacturing practices, and contributing positively to the communities we serve.</p>
+                    <div class="value-highlight">Eco Friendly</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon excellence-icon">
+                        <div class="icon-inner">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Striving for perfection in every aspect of our operations, from product design to customer service, setting new industry benchmarks.</p>
+                    <div class="value-highlight">Industry Leader</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Why Choose SNS</div>
+                <h2 class="section-title" style="color: black;">Why Businesses Trust SNS Industries</h2>
+                <p class="section-subtitle" style="color: black;">
+                    Leading the industry with excellence, innovation, and unwavering commitment 
+                    to customer satisfaction across all market segments.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-number">01</div>
+                    <div class="feature-content">
+                        <h3>Industry Expertise</h3>
+                        <p>Decades of manufacturing experience producing rivets for every application across diverse industries, with deep understanding of technical requirements and market demands.</p>
+                        <div class="feature-benefits">
+                            <span>✓ 25+ Years Experience</span>
+                            <span>✓ Multi-Industry Knowledge</span>
+                            <span>✓ Technical Expertise</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">02</div>
+                    <div class="feature-content">
+                        <h3>Premium Materials</h3>
+                        <p>Exclusively using highest grade stainless steel, aluminium, and specialized alloys sourced from certified suppliers to ensure superior performance and longevity.</p>
+                        <div class="feature-benefits">
+                            <span>✓ Certified Materials</span>
+                            <span>✓ Global Suppliers</span>
+                            <span>✓ Quality Guaranteed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">03</div>
+                    <div class="feature-content">
+                        <h3>Precision Manufacturing</h3>
+                        <p>Rivets engineered with microscopic accuracy using state-of-the-art CNC machinery and automated quality control systems to meet exact specifications.</p>
+                        <div class="feature-benefits">
+                            <span>✓ CNC Precision</span>
+                            <span>✓ Automated QC</span>
+                            <span>✓ Tight Tolerances</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">04</div>
+                    <div class="feature-content">
+                        <h3>Customization Excellence</h3>
+                        <p>Specialized solutions for unique requirements including custom colors, head types, sizes, and materials tailored to your specific application needs.</p>
+                        <div class="feature-benefits">
+                            <span>✓ Custom Design</span>
+                            <span>✓ Flexible MOQ</span>
+                            <span>✓ Rapid Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">05</div>
+                    <div class="feature-content">
+                        <h3>Bulk Supply Capability</h3>
+                        <p>In-house production capabilities for high-volume orders with quick turnaround times, ensuring consistent supply chain reliability for large projects.</p>
+                        <div class="feature-benefits">
+                            <span>✓ High Volume</span>
+                            <span>✓ Quick Delivery</span>
+                            <span>✓ Supply Chain</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">06</div>
+                    <div class="feature-content">
+                        <h3>Customer Support</h3>
+                        <p>Customer-focused approach with comprehensive post-purchase assistance, technical guidance, and dedicated support team available 24/7 for all your needs.</p>
+                        <div class="feature-benefits">
+                            <span>✓ 24/7 Support</span>
+                            <span>✓ Technical Guidance</span>
+                            <span>✓ Post-Sale Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Product Gallery</div>
+                <h2 class="section-title" style="color: black;">See Our Products in Action</h2>
+                <p class="section-subtitle" style="color: black;">
+                    Explore our comprehensive range of rivets and their applications 
+                    across various industries and projects.
+                </p>
+            </div>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="blind">Blind Rivets</button>
+                <button class="filter-btn" data-filter="pop">POP Rivets</button>
+                <button class="filter-btn" data-filter="aluminium">Aluminium</button>
+                <button class="filter-btn" data-filter="custom">Custom</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="blind">
+                    <div class="gallery-image">
+                        <img src="photos/pop-rivet-1-1000x1000.webp" alt="Blind Rivets Collection" />
+                        <div class="gallery-overlay">
+                            <h3>Blind Rivets Collection</h3>
+                            <p>High-performance blind rivets for automotive applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pop">
+                    <div class="gallery-image">
+                        <img src="photos/pop-rivet-2-500x500.webp" alt="POP Rivets Range" />
+                        <div class="gallery-overlay">
+                            <h3>POP Rivets Range</h3>
+                            <p>Versatile POP rivets for sheet metal applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="aluminium">
+                    <div class="gallery-image">
+                        <img src="photos/aluminium-blind-rivet-500x500.webp" alt="aluminium Rivets" />
+                        <div class="gallery-overlay">
+                            <h3>Aluminium Rivets</h3>
+                            <p>Lightweight and corrosion-resistant solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <img src="photos/aluminium-pop-rivets-1000x1000.webp" alt="Custom Solutions" />
+                        <div class="gallery-overlay">
+                            <h3>Custom Solutions</h3>
+                            <p>Tailored rivets for specialized applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="solid">
+                    <div class="gallery-image">
+                        <img src="photos/black-aluminium-solid-rivets-500x500.webp" alt="Solid Rivets" />
+                        <div class="gallery-overlay">
+                            <h3>Solid Rivets</h3>
+                            <p>Maximum strength rivets for structural applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="blind">
+                    <div class="gallery-image">
+                        <div class="image-placeholder blind-bg">
+                            <img src="photos/pop-rivet-1-1000x1000.webp" alt="Blind Rivets" class="gallery-circle-image" />
+                        </div>
+                        <div class="gallery-overlay">
+                            <h3>Blind Rivets Collection</h3>
+                            <p>High-performance blind rivets for automotive applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="pop">
+                    <div class="gallery-image">
+                        <div class="image-placeholder pop-bg">
+                            <img src="photos/pop-rivet-2-500x500.webp" alt="POP Rivets" class="gallery-circle-image" />
+                        </div>
+                        <div class="gallery-overlay">
+                            <h3>POP Rivets Range</h3>
+                            <p>Versatile POP rivets for sheet metal applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="aluminium">
+                    <div class="gallery-image">
+                        <div class="image-placeholder aluminium-bg">
+                            <img src="photos/aluminium-blind-rivet-500x500.webp" alt="aluminium Rivets" class="gallery-circle-image" />
+                        </div>
+                        <div class="gallery-overlay">
+                            <h3>Aluminium Rivets</h3>
+                            <p>Lightweight and corrosion-resistant solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="custom">
+                    <div class="gallery-image">
+                        <div class="image-placeholder custom-bg">
+                            <img src="photos/aluminium-pop-rivets-1000x1000.webp" alt="Custom Solutions" class="gallery-circle-image" />
+                        </div>
+                        <div class="gallery-overlay">
+                            <h3>Custom Solutions</h3>
+                            <p>Tailored rivets for specialized applications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="section-badge light">Get In Touch</div>
+                    <h2>Ready to Discuss Your Requirements?</h2>
+                    <p>Contact us for custom solutions, bulk orders, and technical consultations. Our expert team is ready to help you find the perfect fastening solution for your specific needs.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon location-icon">
+                                <div class="icon-inner">📍</div>
+                            </div>
+                    <div class="contact-text">
+                        <h4>Manufacturing Facility</h4>
+                        <p>Village Alipur, SNS Industries, Alipur<br>New Delhi - 110036, Delhi, India</p>
+                    </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon phone-icon">
+                                <div class="icon-inner">📞</div>
+                            </div>
+                    <div class="contact-text">
+                        <h4>Phone & WhatsApp</h4>
+                        <p>+91 9671342009
+                           +91 8178350764
+                        </p>
+                    </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon email-icon">
+                                <div class="icon-inner">✉️</div>
+                            </div>
+                    <div class="contact-text">
+                        <h4>Email Address</h4>
+                        <p>snsindustries2k18@gmail.com</p>
+                    </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon time-icon">
+                                <div class="icon-inner">🕒</div>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link linkedin">
+                            <div class="social-icon">in</div>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link twitter">
+                            <div class="social-icon">𝕏</div>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-link facebook">
+                            <div class="social-icon">f</div>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" class="social-link instagram">
+                            <div class="social-icon">📷</div>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form class="form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="firstName" name="firstName" required>
+                                <label for="firstName">First Name</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" name="lastName" required>
+                                <label for="lastName">Last Name</label>
+                                <div class="form-line"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Email Address</label>
+                                <div class="form-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" required>
+                                <label for="phone">Phone Number</label>
+                                <div class="form-line"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="company" name="company" required>
+                            <label for="company">Company Name</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <select id="product" name="product" required>
+                                <option value="">Select Product Interest</option>
+                                <option value="blind">Blind Rivets</option>
+                                <option value="pop">POP Rivets</option>
+                                <option value="aluminium-blind">Aluminium Blind Rivets</option>
+                                <option value="aluminium-pop">Aluminium POP Rivets</option>
+                                <option value="solid">Aluminium Solid Rivets</option>
+                                <option value="custom">Custom Solution</option>
+                                <option value="bulk">Bulk Order</option>
+                            </select>
+                            <label for="product">Product Interest</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Project Details & Requirements</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter" class="checkbox-label">
+                                <span class="checkbox-custom"></span>
+                                Subscribe to our newsletter for product updates and industry insights
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <div class="btn-effect"></div>
+                            <div class="btn-loading">
+                                <div class="loading-spinner"></div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+<div class="footer-logo">
+    <div class="logo-3d">
+        <img src="photos/png.avif" alt="Client Logo" class="client-logo" />
+        <!-- Optionally hide or remove the text logo below if image replaces it -->
+        <!-- <span class="logo-text">SNS</span> -->
+        <!-- <span class="logo-subtext">Industries</span> -->
+    </div>
+</div>
+                    <p>Leading manufacturer of high-quality rivets in India. Delivering excellence in fastening solutions worldwide with unmatched precision and reliability.</p>
+                    <div class="footer-certifications">
+                        <div class="cert-badge">ISO 9001</div>
+                        <div class="cert-badge">DIN Standards</div>
+                        <div class="cert-badge">ASTM Certified</div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">Blind Rivets</a></li>
+                        <li><a href="#products">POP Rivets</a></li>
+                        <li><a href="#products">Aluminium Rivets</a></li>
+                        <li><a href="#products">Solid Rivets</a></li>
+                        <li><a href="#products">Custom Solutions</a></li>
+                        <li><a href="#products">Bulk Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#manufacturing">Manufacturing</a></li>
+                        <li><a href="#quality">Quality Assurance</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Industries</h4>
+                    <ul>
+                        <li><a href="#applications">Automotive</a></li>
+                        <li><a href="#applications">Aerospace</a></li>
+                        <li><a href="#applications">Construction</a></li>
+                        <li><a href="#applications">Electronics</a></li>
+                        <li><a href="#applications">Marine</a></li>
+                        <li><a href="#applications">Industrial</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <div class="social-icon">in</div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-icon">𝕏</div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-icon">f</div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-icon">📷</div>
+                        </a>
+                    </div>
+<div class="footer-contact">
+    <p>📞 +91 9671342009</p>
+    <p>📞 +91 8178350764</p>
+    <p>✉️ snsindustries2k18@gmail.com
+                        <p>Rajat Goyal (CEO)</p>
+                        <p>SNS Industries</p>
+                        <p>Village Alipur, SNS Industries, Alipur</p>
+                        <p>New Delhi - 110036, Delhi, India</p>
+                    </div>
+                </div>
+            </div>
+            <p>© Copyright 2025 <strong>SNS INDUSTRIES</strong> | All rights are reserved | Designed and Managed by 
+  <a href="https://promopact.in/" target="_blank" style="text-decoration: none; color: inherit;"><strong>Promopact Marketing India Pvt Ltd</strong></a>
+</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <div class="arrow-up">↑</div>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
